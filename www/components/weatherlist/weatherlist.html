@@ -1,13 +1,13 @@
 <ion-view view-title="Weatherlist">
     <ion-content>
-        <div ng-show="noLocations" class="card">
+        <div ng-show="noLocation" class="card">
             <div class="item item-text-wrap">
                 <div class="item">
                     <p>There are currently no locations available. Feel free to add new ones.</p>
                 </div>
             </div>
         </div>
-        <div ng-repeat="weatherdata in locationData" class="card">
+        <div ng-hide="noLocation" ng-repeat="weatherdata in locationData" class="card">
             <div class="item item-divider icon-left">
                 <img ng-src="{{weatherdata.weather[0].icon}}">{{weatherdata.name}}, {{weatherdata.sys.country}} - {{weatherdata.weather[0].description}}
             </div>

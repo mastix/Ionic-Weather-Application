@@ -16,7 +16,7 @@
   "nonbsp"        : true,     // true: Prohibit "non-breaking whitespace" characters.
   "nonew"         : false,    // true: Prohibit use of constructors for side-effects (without assignment)
   "plusplus"      : false,    // true: Prohibit use of `++` & `--`
-  "quotmark"      : false,    // Quotation mark consistency:
+  "quotmark"      : "single",    // Quotation mark consistency:
   //   false    : do nothing (default)
   //   true     : ensure whatever is used is consistent
   //   "single" : require single quotes
@@ -65,7 +65,7 @@
   "browser"       : true,     // Web Browser (window, document, etc)
   "browserify"    : false,    // Browserify (node.js code in the browser)
   "couch"         : false,    // CouchDB
-  "devel"         : true,     // Development/debugging (alert, confirm, etc)
+  "devel"         : false,     // Development/debugging (alert, confirm, etc)
   "dojo"          : false,    // Dojo Toolkit
   "jasmine"       : false,    // Jasmine
   "jquery"        : false,    // jQuery
@@ -85,5 +85,5 @@
 
   // Custom Globals
   "globals"       : {},       // additional predefined global variables
-  "predef": ["angular","cordova","StatusBar"]
+  "predef": ["angular","cordova","StatusBar","ionic"]
 }

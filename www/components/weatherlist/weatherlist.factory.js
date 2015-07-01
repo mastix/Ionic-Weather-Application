@@ -8,6 +8,6 @@
             getWeatherData: function(url) {
                 return $http.get(url);
             }
-        }
+        };
     }
 })();

@@ -5,20 +5,23 @@
                 Add location
             </div>
             <div class="item item-text-wrap">
-                <form>
-                    <label>Please enter a new location:</label>
-                    <input type="text" id="location" name="location" placeholder="Location" ng-model="addedLocation" required>
-                    <button class="button button-dark" ng-click="getCurrentLocation()">
-                        Get my location
-                    </button>
-                    <button class="button button-dark" ng-click="addLocation(addedLocation)">
-                        Add Location
-                    </button>
-                    <input class="button button-dark" type="submit" value="Add" ng-click="addLocation(addedLocation)"/>
-                </form>
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">Location:</span>
+                        <input type="text" ng-model="addedLocation">
+                    </label>
+                    <div class="button-bar">
+                        <button class="button icon-left ion-pinpoint " ng-click="getCurrentLocation()">
+                            Get location
+                        </button>
+                        <button class="button icon-left ion-ios-plus-outline " ng-click="addLocation(addedLocation)">
+                            Add location
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card">
+        <div ng-show="locations.length>0" class="card">
             <div class="item item-divider">
                 Your locations
             </div>
@@ -29,7 +32,7 @@
                     <ion-item ng-repeat="location in locations"
                               class="">
                         <h2>{{location}}</h2>
-                        <ion-delete-button class="ion-minus-circled"
+                        <ion-delete-button class="ion-trash-a"
                                            ng-click="removeLocation(location)"></ion-delete-button>
                     </ion-item>
                 </ion-list>

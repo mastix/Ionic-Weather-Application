@@ -13,19 +13,22 @@
     };
 
     angular.module('weatherapp.locations')
-        .factory('LocationService', function ($cordovaGeolocation) {
-            var locations = ['Stuttgart', 'Heilbronn'];
+        .factory('LocationService', function ($cordovaGeolocation,WeatherListFactory,WEATHER_API_URL) {
+            var locations = [];
             return {
                 getLocations: function () {
                     return locations;
                 },
 
                 getCurrentLocation: function (callback, error) {
-                    var options = {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true};
+                    var options = {timeout: 10000, enableHighAccuracy: true};
                     $cordovaGeolocation
                         .getCurrentPosition(options)
                         .then(function (position) {
-                            callback(position.coords.latitude, position.coords.longitude);
+                            WeatherListFactory.getWeatherData(WEATHER_API_URL + 'lat=' + position.coords.latitude + '&lon='+position.coords.longitude).then(function (response) {
+                                callback(response.data.name+', '+response.data.sys.country);
+                            });
+
                         }, function (err) {
                             error(err);
                         });
@@ -37,7 +40,6 @@
                 },
 
                 removeLocation: function (location) {
-                    alert("Removing: " + location);
                     locations.remove(location);
                     return locations;
                 }

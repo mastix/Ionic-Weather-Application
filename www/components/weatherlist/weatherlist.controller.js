@@ -12,9 +12,8 @@
             if (!$scope.noLocation){
                 locations.forEach(function (location) {
                     WeatherListFactory.getWeatherData(WEATHER_API_URL + 'q=' + location).then(function (response) {
-                        response.data.weather[0].icon=WEATHER_API_IMAGE_URL+response.data.weather[0].icon+".png";
+                        response.data.weather[0].icon=WEATHER_API_IMAGE_URL+response.data.weather[0].icon+'.png';
                         $scope.locationData.push(response.data);
-                        console.log($scope.locationData);
                     });
                 });
             }

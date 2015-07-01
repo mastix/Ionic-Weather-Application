@@ -2,24 +2,26 @@
     'use strict';
     angular.module('weatherapp.locations', ['weatherapp.weatherlist', 'ngCordova'])
         .controller('LocationsController', function ($scope, $q, LocationService, WeatherListFactory, WEATHER_API_URL) {
-            $scope.addedLocation = "";
+            $scope.addedLocation = '';
             $scope.locations = LocationService.getLocations();
 
             $scope.removeLocation = function (location) {
                 $scope.locations = LocationService.removeLocation(location);
-                $scope.addedLocation = "";
+                $scope.addedLocation = '';
             };
 
             $scope.addLocation = function (location) {
                 validateLocation(location).then(function () {
                     $scope.locations = LocationService.addLocation(location);
-                    $scope.addedLocation = "";
+                    $scope.addedLocation = '';
+                },function(){
+                    alert('Please check your settings!');
                 });
             };
 
-            $scope.getCurrentPosition = function () {
-                LocationService.getCurrentPosition(function (lat, long) {
-                    alert(lat + ' - ' + long);
+            $scope.getCurrentLocation = function () {
+                LocationService.getCurrentLocation(function (location) {
+                    $scope.addedLocation=location;
                 }, function (err) {
                     alert(err);
                 });
