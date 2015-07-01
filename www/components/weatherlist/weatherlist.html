@@ -1,0 +1,31 @@
+<ion-view view-title="Weatherlist">
+    <ion-content>
+        <div ng-repeat="weatherdata in locationData" class="card">
+            <div class="item item-divider icon-left">
+                <img src="{{weatherdata.weather[0].icon}}">{{weatherdata.name}}, {{weatherdata.sys.country}} - {{weatherdata.weather[0].description}}
+            </div>
+            <div class="item item-text-wrap">
+                <div class="item">
+                    <div class="row">
+                        <div class="col"><h2>Temperature:</h2></div>
+                        <div class="col col-30">{{weatherdata.main.temp}} &deg;C</div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><h2>Min. Temp.:</h2></div>
+                        <div class="col col-30">{{weatherdata.main.temp_min}} &deg;C</div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><h2>Max. Temp.:</h2></div>
+                        <div class="col col-30">{{weatherdata.main.temp_max}} &deg;C</div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><h2>Humidity:</h2></div>
+                        <div class="col col-30">{{weatherdata.main.humidity}} %</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
+

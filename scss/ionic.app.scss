@@ -1,0 +1,35 @@
+/*
+$light:                           #fff !default;
+$stable:                          #FF6B6B !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+ion-content {
+  background: linear-gradient(230deg, #556270 30%, #FF6B6B 90%);
+}
+
+ion-side-menu {
+  ion-content {
+    background: $stable none;
+  }
+  .item-content{
+    background: $stable none !important;
+  }
+}
+
+.col-key{
+  width:20%;
+}
+

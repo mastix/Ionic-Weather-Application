@@ -1,0 +1,44 @@
+<ion-view view-title="Locations">
+    <ion-content>
+        <div class="card">
+            <div class="item item-divider">
+                Add location
+            </div>
+            <div class="item item-text-wrap">
+                <form>
+                    <label>Please enter a new location:</label>
+                    <input type="text" id="location" name="location" placeholder="Location" ng-model="addedLocation" required>
+                    <input type="button" value="Get my location" ng-click="getCurrentLocation()"/>
+                    <input type="submit" value="Add" ng-click="addLocation(addedLocation)"/>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                Your locations
+            </div>
+            <div class="item">
+                <ion-list show-delete="true"
+                          show-reorder="false"
+                          can-swipe="true">
+                    <ion-item ng-repeat="location in locations"
+                              class="">
+                        <h2>{{location}}</h2>
+                        <ion-delete-button class="ion-minus-circled"
+                                           ng-click="removeLocation(location)"></ion-delete-button>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<script id="location-error.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar>
+            <h1 class="title">Problem with your location</h1>
+        </ion-header-bar>
+        <ion-content>
+            Your location does not seem to be valid. Please check it again.
+        </ion-content>
+    </ion-modal-view>
+</script>
