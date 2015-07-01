@@ -15,6 +15,7 @@ The application allows you to add locations (manual or via Geolocation) and to d
 * Displaying a splash screen
 * Using an application icon
 * Concatenates and minifies JS files
+* Uses JShint to lint the JS files
 * Uses SASS to generate css files
 
 Feel free to download and play with it! ;)
