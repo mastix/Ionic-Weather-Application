@@ -8,8 +8,13 @@
                 <form>
                     <label>Please enter a new location:</label>
                     <input type="text" id="location" name="location" placeholder="Location" ng-model="addedLocation" required>
-                    <input type="button" value="Get my location" ng-click="getCurrentLocation()"/>
-                    <input type="submit" value="Add" ng-click="addLocation(addedLocation)"/>
+                    <button class="button button-dark" ng-click="getCurrentLocation()">
+                        Get my location
+                    </button>
+                    <button class="button button-dark" ng-click="addLocation(addedLocation)">
+                        Add Location
+                    </button>
+                    <input class="button button-dark" type="submit" value="Add" ng-click="addLocation(addedLocation)"/>
                 </form>
             </div>
         </div>

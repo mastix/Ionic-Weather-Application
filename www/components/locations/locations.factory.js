@@ -41,7 +41,7 @@
                     locations.remove(location);
                     return locations;
                 }
-            }
+            };
 
         });
 })();
