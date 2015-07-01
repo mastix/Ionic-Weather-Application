@@ -22,6 +22,7 @@ Feel free to download and play with it! ;)
 # How to start
 
 ```bash
+# Fetch the source code
 git clone https://github.com/mastix/Ionic-Weather-Application.git
 cd Ionic-Weather-Application
 
