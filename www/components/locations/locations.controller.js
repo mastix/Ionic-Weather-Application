@@ -2,34 +2,35 @@
     'use strict';
     angular.module('weatherapp.locations', ['weatherapp.weatherlist', 'ngCordova'])
         .controller('LocationsController', function ($scope, $q, $ionicPopup, LocationService, WeatherListFactory, WEATHER_API_URL) {
-            $scope.addedLocation = '';
+            $scope.location={
+                name:''
+            };
             $scope.$on('$ionicView.enter', function(){
-                $scope.addedLocation = '';
+                $scope.location.name='';
                 $scope.locations = LocationService.getLocations();
 
             });
 
             $scope.removeLocation = function (location) {
                 $scope.locations = LocationService.removeLocation(location);
-                $scope.addedLocation = '';
+                $scope.location.name='';
             };
 
             $scope.addLocation = function (location) {
-                location = location.trim();
                 validateLocation(location).then(function () {
-                    $scope.locations = LocationService.addLocation(location);
-                    $scope.addedLocation = '';
+                    $scope.locations = LocationService.addLocation(location.trim());
+                    $scope.location.name='';
                 }, function () {
                     showError('Error adding location', 'The location you have entered is not a valid location.');
                 });
             };
 
             $scope.getCurrentLocation = function () {
-                $scope.addedLocation = '';
+                $scope.location.name='';
                 $scope.showSpinner = true;
                 LocationService.getCurrentLocation(function (location) {
                     $scope.showSpinner = false;
-                    $scope.addedLocation = location;
+                    $scope.location.name = location;
                 }, function () {
                     $scope.showSpinner = false;
                     showError('Error retrieving current location', 'Your location could not be retrieved. Please make sure you have your GPS Location Services enabled.');

@@ -8,13 +8,13 @@
                 <div class="list">
                     <label class="item item-input item-icon-right">
                         <span class="input-label">Location:</span>
-                        <ion-spinner ng-show="showSpinner" icon="dots"></ion-spinner><input type="text" ng-model="addedLocation">
+                        <ion-spinner ng-show="showSpinner" icon="dots"></ion-spinner><input type="text" ng-model="location.name">
                     </label>
                     <div class="button-bar">
                         <button ng-disabled="showSpinner" class="button icon-left ion-pinpoint " ng-click="getCurrentLocation()">
                             Get location
                         </button>
-                        <button ng-disabled="showSpinner" class="button icon-left ion-ios-plus-outline " ng-click="addLocation(addedLocation)">
+                        <button ng-disabled="showSpinner" class="button icon-left ion-ios-plus-outline " ng-click="addLocation(location.name)">
                             Add location
                         </button>
                     </div>
