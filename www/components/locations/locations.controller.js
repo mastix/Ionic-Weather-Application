@@ -1,9 +1,13 @@
 (function () {
     'use strict';
     angular.module('weatherapp.locations', ['weatherapp.weatherlist', 'ngCordova'])
-        .controller('LocationsController', function ($scope, $q, LocationService, WeatherListFactory, WEATHER_API_URL) {
+        .controller('LocationsController', function ($scope, $q, $ionicPopup, LocationService, WeatherListFactory, WEATHER_API_URL) {
             $scope.addedLocation = '';
-            $scope.locations = LocationService.getLocations();
+            $scope.$on('$ionicView.enter', function(){
+                $scope.addedLocation = '';
+                $scope.locations = LocationService.getLocations();
+
+            });
 
             $scope.removeLocation = function (location) {
                 $scope.locations = LocationService.removeLocation(location);
@@ -11,24 +15,35 @@
             };
 
             $scope.addLocation = function (location) {
+                location = location.trim();
                 validateLocation(location).then(function () {
                     $scope.locations = LocationService.addLocation(location);
                     $scope.addedLocation = '';
-                },function(){
-                    alert('Please check your settings!');
+                }, function () {
+                    showError('Error adding location', 'The location you have entered is not a valid location.');
                 });
             };
 
             $scope.getCurrentLocation = function () {
+                $scope.addedLocation = '';
+                $scope.showSpinner = true;
                 LocationService.getCurrentLocation(function (location) {
-                    $scope.addedLocation=location;
-                }, function (err) {
-                    alert(err);
+                    $scope.showSpinner = false;
+                    $scope.addedLocation = location;
+                }, function () {
+                    $scope.showSpinner = false;
+                    showError('Error retrieving current location', 'Your location could not be retrieved. Please make sure you have your GPS Location Services enabled.');
                 });
             };
 
+            function showError(title, text) {
+                $ionicPopup.alert({
+                    title: title,
+                    template: text
+                });
+            }
+
             function validateLocation(location) {
-                //TODO check if it already exists in the list!
                 // use a promise to check whether the city is valid or not
                 return $q(function (resolve, reject) {
                     //very simple pre-validation, so we don't stress the web service unnecessarily
