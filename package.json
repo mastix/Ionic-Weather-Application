@@ -1,7 +1,7 @@
 {
-  "name": "myfirstionicapp",
+  "name": "ionicweatherapp",
   "version": "1.0.0",
-  "description": "MyFirstIonicApp: An Ionic project",
+  "description": "IONIC Weather App by Sascha Sambale",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^1.3.3",
