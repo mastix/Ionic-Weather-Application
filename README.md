@@ -6,6 +6,10 @@ This is a little demo project to show how to implement a hybrid application with
 
 The application allows you to add locations (manual or via Geolocation) and to display the weather data (using the [OpenWeatherMap API](http://openweathermap.org/api)) for them.
 
+# Prerequisites
+
+Follow the [Android](http://cordova.apache.org/docs/en/3.3.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide) and [iOS](http://cordova.apache.org/docs/en/3.3.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide) platform guides to install required platform dependencies.
+
 # Features
 
 * Retrieving Device Information
@@ -18,7 +22,11 @@ The application allows you to add locations (manual or via Geolocation) and to d
 * Uses JShint to lint the JS files
 * Uses SASS to generate css files
 
-Feel free to download and play with it! ;)
+# Disclaimer
+
+Due to the fact that I only have an Android phone (and no iOS Dev Account fpr $99 a year) I have only tested this application on my Samsung Galaxy S5.
+
+But now feel free to download and play with it! ;)
 
 # How to start
 
