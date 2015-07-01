@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('weatherapp.weatherlist', ['weatherapp.locations'])
-        .controller('WeatherlistController', WeatherListCtrl);
+        .controller('WeatherlistController', ['$scope', 'LocationService', 'WEATHER_API_URL', 'WEATHER_API_IMAGE_URL', 'WeatherListFactory',WeatherListCtrl]);
 
     function WeatherListCtrl($scope, LocationService, WEATHER_API_URL, WEATHER_API_IMAGE_URL, WeatherListFactory) {
         $scope.$on('$ionicView.enter', function(){

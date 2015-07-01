@@ -23,51 +23,53 @@
     };
 
     angular.module('weatherapp.locations')
-        .factory('LocationService', function (LocationStorageService, $cordovaGeolocation, WeatherListFactory, WEATHER_API_URL) {
-            var LOCATION_STORAGE_KEY = 'l0c4t10nK3y';
+        .factory('LocationService', ['LocationStorageService', '$cordovaGeolocation', 'WeatherListFactory', 'WEATHER_API_URL', LocationService]);
 
-            function storeLocation(location) {
-                LocationStorageService.set(LOCATION_STORAGE_KEY, location);
-            }
+    function LocationService(LocationStorageService, $cordovaGeolocation, WeatherListFactory, WEATHER_API_URL) {
+        var LOCATION_STORAGE_KEY = 'l0c4t10nK3y';
 
-            function getLocations() {
-                return LocationStorageService.get(LOCATION_STORAGE_KEY);
-            }
+        function storeLocation(location) {
+            LocationStorageService.set(LOCATION_STORAGE_KEY, location);
+        }
 
-            return {
-                getLocations: function () {
-                    return getLocations();
-                },
+        function getLocations() {
+            return LocationStorageService.get(LOCATION_STORAGE_KEY);
+        }
 
-                getCurrentLocation: function (callback, error) {
-                    var options = {timeout: 10000, enableHighAccuracy: true};
-                    $cordovaGeolocation
-                        .getCurrentPosition(options)
-                        .then(function (position) {
-                            WeatherListFactory.getWeatherData(WEATHER_API_URL + 'lat=' + position.coords.latitude + '&lon=' + position.coords.longitude).then(function (response) {
-                                callback(response.data.name + ', ' + response.data.sys.country);
-                            });
+        return {
+            getLocations: function () {
+                return getLocations();
+            },
 
-                        }, function (err) {
-                            error(err);
+            getCurrentLocation: function (callback, error) {
+                var options = {timeout: 10000, enableHighAccuracy: true};
+                $cordovaGeolocation
+                    .getCurrentPosition(options)
+                    .then(function (position) {
+                        WeatherListFactory.getWeatherData(WEATHER_API_URL + 'lat=' + position.coords.latitude + '&lon=' + position.coords.longitude).then(function (response) {
+                            callback(response.data.name + ', ' + response.data.sys.country);
                         });
-                },
 
-                addLocation: function (location) {
-                    var addLocations = getLocations();
-                    if (!addLocations.contains(location)) {
-                        addLocations.push(location);
-                        storeLocation(addLocations);
-                    }
-                    return getLocations();
-                },
+                    }, function (err) {
+                        error(err);
+                    });
+            },
 
-                removeLocation: function (location) {
-                    var removeLocations = getLocations();
-                    removeLocations.remove(location);
-                    storeLocation(removeLocations);
-                    return getLocations();
+            addLocation: function (location) {
+                var addLocations = getLocations();
+                if (!addLocations.contains(location)) {
+                    addLocations.push(location);
+                    storeLocation(addLocations);
                 }
-            };
-        });
+                return getLocations();
+            },
+
+            removeLocation: function (location) {
+                var removeLocations = getLocations();
+                removeLocations.remove(location);
+                storeLocation(removeLocations);
+                return getLocations();
+            }
+        };
+    }
 })();
