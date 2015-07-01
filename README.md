@@ -26,10 +26,10 @@ Feel free to download and play with it! ;)
 git clone https://github.com/mastix/Ionic-Weather-Application.git
 cd Ionic-Weather-Application
 
-# If you don't have gulp, bower, ionic and cordova already installed
+# If you don't have gulp, bower, ionic and cordova installed, run the following command
 npm install -g gulp bower ionic cordova
 
-# Install all necessary tools, plugins and platforms
+# Install all necessary tools, plugins and platforms by running the following commands
 npm install
 ionic state restore
 gulp
