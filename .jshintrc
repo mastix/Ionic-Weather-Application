@@ -85,5 +85,5 @@
 
   // Custom Globals
   "globals"       : {},       // additional predefined global variables
-  "predef": ["angular","cordova","StatusBar","ionic"]
+  "predef": ["angular","cordova","StatusBar","ionic","require"]
 }

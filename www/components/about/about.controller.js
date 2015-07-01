@@ -11,7 +11,6 @@
                 $scope.version='n.a.';
                 $scope.manufacturer='n.a.';
                 $scope.model='n.a.';
-                console.log(deviceInformation);
                 if (deviceInformation.available === true) {
                     $scope.platform=deviceInformation.platform;
                     $scope.version=deviceInformation.version;

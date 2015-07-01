@@ -3,7 +3,6 @@
     angular.module('weatherapp', ['ionic', 'weatherapp.menu', 'weatherapp.locations', 'weatherapp.weatherlist','weatherapp.about'])
         .run(function ($ionicPlatform) {
             $ionicPlatform.ready(function () {
-                console.log('Starting app');
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                 // for form inputs)
                 if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -18,37 +17,37 @@
             $stateProvider
 
                 .state('app', {
-                    url: "/app",
+                    url: '/app',
                     abstract: true,
-                    templateUrl: "components/menu/menu.html",
+                    templateUrl: 'components/menu/menu.html',
                     controller: 'MenuController'
                 })
 
                 .state('app.locations', {
-                    url: "/locations",
+                    url: '/locations',
                     views: {
                         'menuContent': {
-                            templateUrl: "components/locations/locations.html",
-                            controller: "LocationsController"
+                            templateUrl: 'components/locations/locations.html',
+                            controller: 'LocationsController'
                         }
                     }
                 })
 
                 .state('app.about', {
-                    url: "/about",
+                    url: '/about',
                     views: {
                         'menuContent': {
-                            templateUrl: "components/about/about.html",
-                            controller: "AboutController"
+                            templateUrl: 'components/about/about.html',
+                            controller: 'AboutController'
                         }
                     }
                 })
 
                 .state('app.weatherlist', {
-                    url: "/weatherlist",
+                    url: '/weatherlist',
                     views: {
                         'menuContent': {
-                            templateUrl: "components/weatherlist/weatherlist.html",
+                            templateUrl: 'components/weatherlist/weatherlist.html',
                             controller: 'WeatherlistController'
                         }
                     }
