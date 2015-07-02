@@ -6,9 +6,8 @@
             </div>
             <div class="item item-text-wrap">
                 <div class="list">
-                    <label class="item item-input item-icon-right">
-                        <span class="input-label">Location:</span>
-                        <ion-spinner ng-show="showSpinner" icon="dots"></ion-spinner><input type="text" ng-model="location.name">
+                    <label id="location-label" class="item item-input">
+                        <ion-spinner ng-show="showSpinner" icon="dots"></ion-spinner><input type="text" placeholder="Location" ng-model="location.name">
                     </label>
                     <div class="button-bar">
                         <button ng-disabled="showSpinner" class="button icon-left ion-pinpoint " ng-click="getCurrentLocation()">

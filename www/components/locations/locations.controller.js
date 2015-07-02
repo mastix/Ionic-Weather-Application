@@ -28,7 +28,7 @@
         };
 
         $scope.getCurrentLocation = function () {
-            $scope.location.name = '';
+            $scope.location.name = ' ';
             $scope.showSpinner = true;
             LocationService.getCurrentLocation(function (location) {
                 $scope.showSpinner = false;

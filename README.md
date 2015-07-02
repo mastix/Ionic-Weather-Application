@@ -12,19 +12,19 @@ Follow the [Android](http://cordova.apache.org/docs/en/3.3.0/guide_platforms_and
 
 # Features
 
-* Retrieving Device Information
+* Retrieving device Information
 * Detecting the user's current location
 * Storing data via LocalStorage
-* Fetching JSON data from a REST API
+* Fetching JSON data from a REST API ([OpenWeatherMap API](http://openweathermap.org/api))
 * Displaying a splash screen
 * Using an application icon
-* Concatenates and minifies JS files
-* Uses JShint to lint the JS files
+* Concatenating and minifying JS files using Gulp
+* Using JShint to lint the JS files
 * Uses SASS to generate css files
 
 # Disclaimer
 
-Due to the fact that I only have an Android phone (and no iOS Dev Account fpr $99 a year) I have only tested this application on my Samsung Galaxy S5.
+Due to the fact that I only have an Android phone (and no iOS Dev Account fpr $99 a year) I have only tested this application on my Samsung Galaxy S5 (Android).
 
 But now feel free to download and play with it! ;)
 
@@ -45,6 +45,9 @@ gulp
 
 # Run the application on your android device (if you need IOS support you have to install the ios platform)
 ionic run android
+
+# Or just run the UI in your browser (Caution: You won't have device specific features when doing so (e.g. splash screen, device information (the whole about screen will not work!),...)
+ionic server --lab
 ```
 
 # License

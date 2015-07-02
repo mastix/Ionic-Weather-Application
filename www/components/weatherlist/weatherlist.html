@@ -8,8 +8,8 @@
             </div>
         </div>
         <div ng-hide="noLocation" ng-repeat="weatherdata in locationData" class="card">
-            <div class="item item-divider icon-left">
-                <img ng-src="{{weatherdata.weather[0].icon}}">{{weatherdata.name}}, {{weatherdata.sys.country}} - {{weatherdata.weather[0].description}}
+            <div class="item item-divider icon-left weatherlist-title">
+                <img ng-src="{{weatherdata.weather[0].icon}}"><span>{{weatherdata.name}}, {{weatherdata.sys.country}} - {{weatherdata.weather[0].description}}</span>
             </div>
             <div class="item item-text-wrap">
                 <div class="item">

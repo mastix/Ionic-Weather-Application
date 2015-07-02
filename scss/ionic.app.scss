@@ -33,3 +33,19 @@ ion-side-menu {
   width:20%;
 }
 
+#location-label{
+  padding: 8px;
+  border: 1px solid $stable;
+  margin-bottom: 8px;
+
+  input{
+    font-size: 1em;
+  }
+}
+
+.weatherlist-title{
+  padding: 0;
+  img{
+    vertical-align: middle;
+  }
+}
