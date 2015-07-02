@@ -24,7 +24,7 @@ Follow the [Android](http://cordova.apache.org/docs/en/3.3.0/guide_platforms_and
 
 # Disclaimer
 
-Due to the fact that I only have an Android phone (and no iOS Dev Account fpr $99 a year) I have only tested this application on my Samsung Galaxy S5 (Android).
+Due to the fact that I only have an Android phone (and no iOS Dev Account for $99 a year) I have only tested this application on my Samsung Galaxy S5 (Android).
 
 But now feel free to download and play with it! ;)
 
