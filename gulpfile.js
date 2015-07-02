@@ -11,7 +11,7 @@ var sh = require('shelljs');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
-var order = require("gulp-order");
+var exec = require('child_process').exec;
 
 var paths = {
     sass: ['./scss/**/*.scss']
@@ -75,4 +75,20 @@ gulp.task('git-check', function (done) {
         process.exit(1);
     }
     done();
+});
+
+gulp.task('run.android', ['default'], function (cb) {
+    exec('ionic run android', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
+});
+
+gulp.task('run.ios', ['default'], function (cb) {
+    exec('ionic run ios', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
 });
