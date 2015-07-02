@@ -50,7 +50,7 @@ gulp run.android
 gulp run.ios
 
 # Option 3: Run the UI in your browser (Caution: You won't have device specific features when doing so (e.g. splash screen, device information (the whole about screen will not work!),...)
-ionic server --lab
+ionic serve --lab
 ```
 
 # License
