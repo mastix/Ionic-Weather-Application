@@ -28,6 +28,14 @@ Due to the fact that I only have an Android phone (and no iOS Dev Account for $9
 
 But now feel free to download and play with it! ;)
 
+# Screenshots
+
+[<img alt="weather_splash" src="https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_splash.png" width="180" height="320">](https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_splash.png)|
+[<img alt="weather_list" src="https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_list.png" width="180" height="320">](https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_list.png) |
+[<img alt="weather_locations" src="https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_locations.png" width="180" height="320">](https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_locations.png) |
+[<img alt="weather_about" src="https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_about.png" width="180" height="320">](https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_about.png) |
+[<img alt="weather_menu" src="https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_menu.png" width="180" height="320">](https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_menu.png)
+
 # How to start
 
 ```bash
