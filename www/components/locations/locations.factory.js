@@ -100,6 +100,8 @@
               WeatherListFactory.getWeatherDataByLatLong(position.coords.latitude, position.coords.longitude).then(function (response) {
                 //noinspection JSUnresolvedVariable
                 resolve(response.data.name + ', ' + response.data.sys.country);
+              }, function () {
+                reject();
               });
             }, function () {
               reject();

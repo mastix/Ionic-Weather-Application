@@ -31,6 +31,7 @@
   function WeatherlistController($scope, LocationService, WeatherListFactory) {
     $scope.$on('$ionicView.enter', function () {
       $scope.locationData = [];
+      $scope.errorLocationRetrieval = false;
       // get all locations from the LocationService
       var locations = LocationService.getLocations();
       $scope.noLocation = locations.length < 1;
@@ -43,6 +44,9 @@
               // store the result in our array, which will be displayed in the view
               $scope.locationData.push(locationWeather);
             });
+          }, function () {
+            // show error message on screen
+            $scope.errorLocationRetrieval = true;
           });
         });
       }

@@ -58,7 +58,7 @@
         $scope.location.name = '';
         $scope.locations = LocationService.addLocation(location.trim());
       }, function () {
-        showError('Error adding location!', 'The location you have entered is not valid.');
+        showError('Error adding location!', 'The location you have entered is either not valid or you don\'t have access to the internet (e.g. firewall access) in order to verify the given location.');
       });
     };
 
@@ -71,7 +71,7 @@
         $scope.location.name = location;
       }, function () {
         $scope.showSpinner = false;
-        showError('Error retrieving current location!', 'Your location could not be retrieved. Please make sure you have your GPS Location Services enabled.');
+        showError('Error retrieving current location!', 'Your location could not be retrieved. Please make sure you have your GPS Location Services enabled and your network allows the retrieval.');
       });
     };
 
@@ -108,6 +108,8 @@
               // the city is valid, everything is cool.
               resolve();
             }
+          }, function () {
+            reject();
           });
         } else {
           // looks like the city is not a valid city
