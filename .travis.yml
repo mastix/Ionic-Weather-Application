@@ -12,6 +12,9 @@ cache:
   directories:
     - node_modules
     - www/lib
+before_install:
+  - export ANDROID_HOME=/usr/local/android-sdk
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 install:
   - echo "Installing..."
   - npm install -g gulp bower ionic cordova
@@ -19,8 +22,6 @@ install:
 script:
   - echo "Loading Ionic stuff"
   - ionic state restore
-  - export ANDROID_HOME=`pwd`/android-sdk-linux
-  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
   - gulp build.android
 after_failure:
 - echo "Error happened"
