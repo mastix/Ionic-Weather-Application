@@ -1,24 +1,17 @@
-language: node_js
-node_js:
-  - "0.12"
+language: android
 android:
   components:
     - platform-tools
     - tools
-    - build-tools-21.0.0
-    - android-21
-sudo: false
-cache:
-  directories:
-    - node_modules
-    - www/lib
-before_install:
-  - find /usr/ -name 'adb*'
-  - find ~/ -name 'adb*'
-  - export ANDROID_HOME=/usr/local/android-sdk
-  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+    - build-tools-22.0.1
+    - android-22
+sudo: required
 install:
-  - echo "Installing..."
+  - echo "Install stage"
+  - sudo apt-get install -y python-software-properties
+  - sudo add-apt-repository -y ppa:chris-lea/node.js
+  - sudo apt-get update -y
+  - sudo apt-get install -y nodejs imagemagick
   - npm install -g gulp bower ionic cordova
   - npm install
 script:
