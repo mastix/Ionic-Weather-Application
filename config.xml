@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.mastixmc.weatherapp" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Weather App</name>
-  <description>&#xD;
-        Just a simple demo project, that loads weather data from a REST API.&#xD;
+  <description>
+        Just a simple demo project, that loads weather data from a REST API.
     </description>
-  <author email="mastixmc@gmail.com" href="http://project-webdev.blogspot.com/">&#xD;
-        Sascha Sambale&#xD;
+  <author email="mastixmc@gmail.com" href="http://project-webdev.blogspot.com/">
+        Sascha Sambale
     </author>
   <content src="index.html"/>
   <access origin="*"/>

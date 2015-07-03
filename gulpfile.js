@@ -14,7 +14,8 @@ var concat = require('gulp-concat');
 var exec = require('child_process').exec;
 
 var paths = {
-    sass: ['./scss/**/*.scss']
+    sass: ['./scss/**/*.scss'],
+    js: ['./www/**/*.js','!./www/**/*.min.js']
 };
 
 gulp.task('default', ['sass', 'jshint']);
@@ -55,6 +56,7 @@ gulp.task('compress', ['jshint'], function () {
 
 gulp.task('watch', function () {
     gulp.watch(paths.sass, ['sass']);
+    gulp.watch(paths.js, ['compress'])
 });
 
 gulp.task('install', ['git-check'], function () {

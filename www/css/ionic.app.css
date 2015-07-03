@@ -7691,4 +7691,5 @@ ion-side-menu .item-content {
 .weatherlist-title {
   padding: 0; }
   .weatherlist-title img {
-    vertical-align: middle; }
+    vertical-align: middle;
+    padding-right: 8px; }

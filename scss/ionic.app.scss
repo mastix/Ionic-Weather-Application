@@ -24,28 +24,28 @@ ion-side-menu {
   ion-content {
     background: $stable none;
   }
-  .item-content{
+  .item-content {
     background: $stable none !important;
   }
 }
 
-.col-key{
-  width:20%;
+.col-key {
+  width: 20%;
 }
 
-#location-label{
+#location-label {
   padding: 8px;
   border: 1px solid $stable;
   margin-bottom: 8px;
 
-  input{
+  input {
     font-size: 1em;
   }
 }
 
-.weatherlist-title{
+.weatherlist-title {
   padding: 0;
-  img{
+  img {
     vertical-align: middle;
     padding-right: 8px;
   }

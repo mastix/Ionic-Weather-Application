@@ -1,22 +1,51 @@
+/**
+ * @license Ionic-Weather-Application
+ * (c) 2015 Sascha Sambale, http://www.project-webdev.com
+ * License: MIT
+ */
 (function () {
-    'use strict';
-    angular.module('weatherapp.weatherlist', ['weatherapp.locations'])
-        .controller('WeatherlistController', ['$scope', 'LocationService', 'WEATHER_API_URL', 'WEATHER_API_IMAGE_URL', 'WeatherListFactory',WeatherListCtrl]);
-
-    function WeatherListCtrl($scope, LocationService, WEATHER_API_URL, WEATHER_API_IMAGE_URL, WeatherListFactory) {
-        $scope.$on('$ionicView.enter', function(){
-            $scope.locationData= [];
-            //TODO Show empty String when no locations are set.
-            var locations = LocationService.getLocations();
-            $scope.noLocation=locations.length<1;
-            if (!$scope.noLocation){
-                locations.forEach(function (location) {
-                    WeatherListFactory.getWeatherData(WEATHER_API_URL + 'q=' + location).then(function (response) {
-                        response.data.weather[0].icon=WEATHER_API_IMAGE_URL+response.data.weather[0].icon+'.png';
-                        $scope.locationData.push(response.data);
-                    });
-                });
-            }
+  'use strict';
+  /**
+   * @ngdoc module
+   * @name weatherapp.weatherlist
+   * @description
+   *
+   * The weatherapp.weatherlist module handles the display of the weather data cards.
+   *
+   **/
+  angular.module('weatherapp.weatherlist', ['weatherapp.locations'])
+    .controller('WeatherlistController', ['$scope', 'LocationService', 'WeatherListFactory', WeatherlistController]);
+  /**
+   * @ngdoc controller
+   * @name WeatherlistController
+   * @requires $scope
+   * @requires LocationService
+   * @requires WEATHER_API_IMAGE_URL
+   * @requires WeatherListFactory
+   *
+   * @description
+   *
+   * The `WeatherlistController` constructs an array of location/weather data, by sending the location to the OpenWeatherMap API and storing the result in a variable.
+   *
+   */
+  function WeatherlistController($scope, LocationService, WeatherListFactory) {
+    $scope.$on('$ionicView.enter', function () {
+      $scope.locationData = [];
+      // get all locations from the LocationService
+      var locations = LocationService.getLocations();
+      $scope.noLocation = locations.length < 1;
+      // only display locations when there are some
+      if (!$scope.noLocation) {
+        // iterate through the stored locations and call the OpenWeatherMap REST API
+        locations.forEach(function (location) {
+          WeatherListFactory.getWeatherData(location).then(function (response) {
+            WeatherListFactory.updateWeatherIcon(response.data).then(function (locationWeather) {
+              // store the result in our array, which will be displayed in the view
+              $scope.locationData.push(locationWeather);
+            });
+          });
         });
-    }
+      }
+    });
+  }
 })();
