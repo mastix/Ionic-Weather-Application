@@ -13,8 +13,7 @@ cache:
     - node_modules
     - www/lib
 before_install:
-  - which adb
-  - cd / && find . -name adb
+  - find / -name 'adb*'
   - export ANDROID_HOME=/usr/local/android-sdk
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 install:
