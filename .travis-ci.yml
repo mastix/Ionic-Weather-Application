@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+  - "0.12"
+android:
+  components:
+    - platform-tools
+    - tools
+    - build-tools-21.0.0
+    - android-21
+sudo: false
+cache:
+  directories:
+    - node_modules
+    - www/lib
+install:
+  - echo "Installing..."
+  - npm install -g gulp bower ionic cordova
+  - npm install
+script:
+  - echo "Loading Ionic stuff"
+  - ionic state restore
+  - gulp build.android
+after_failure:
+- echo "Error happened"
+after_script:
+- echo "Script has been finished"

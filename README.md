@@ -51,13 +51,19 @@ npm install
 ionic state restore
 gulp
 
-# Option 1: Run the application on your android device
+# Option 1: Run the application on your Android device
 gulp run.android
 
 # Option 2: Run the application on your iOS device
 gulp run.ios
 
-# Option 3: Run the UI in your browser (Caution: You won't have device specific features when doing so (e.g. splash screen, device information (the whole about screen will not work!),...)
+# Option 3: Build the Android application
+gulp build.android
+
+# Option 4: Build the iOS application
+gulp build.ios
+
+# Option 5: Run the UI in your browser (Caution: You won't have device specific features when doing so (e.g. splash screen, device information (the whole about screen will not work!),...)
 ionic serve --lab
 ```
 

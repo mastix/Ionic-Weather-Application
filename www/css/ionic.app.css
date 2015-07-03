@@ -7675,8 +7675,8 @@ a.button {
   padding-bottom: 15px !important; }
 
 #weather-list .item-divider {
-  padding-top: 8px !important;
-  padding-bottom: 8px !important; }
+  padding-top: 0px !important;
+  padding-bottom: 0px !important; }
 
 ion-content {
   background: linear-gradient(230deg, #556270 30%, #FF6B6B 90%); }
