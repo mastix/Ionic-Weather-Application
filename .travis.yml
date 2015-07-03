@@ -19,6 +19,8 @@ install:
 script:
   - echo "Loading Ionic stuff"
   - ionic state restore
+  - export ANDROID_HOME=`pwd`/android-sdk-linux
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
   - gulp build.android
 after_failure:
 - echo "Error happened"
