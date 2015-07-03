@@ -1,3 +1,5 @@
+[![License](https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat)](https://tldrlegal.com/license/mit-license "MIT License")
+[![Build](https://travis-ci.org/mastix/Ionic-Weather-Application.svg?branch=master)](https://travis-ci.org/mastix/Ionic-Weather-Application "Build status")
 # Introduction
 
 This is a little demo project to show how to implement a hybrid application with the [Ionic Framework](http://ionicframework.com/).
