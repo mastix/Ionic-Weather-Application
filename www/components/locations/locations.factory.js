@@ -40,7 +40,6 @@
    *
    **/
   angular.module('weatherapp.locations')
-    .factory('LocationService', ['LocationStorageService', '$q', '$cordovaGeolocation', 'WeatherListFactory', LocationService]);
   /**
    * @ngdoc factory
    * @name LocationService
@@ -54,13 +53,15 @@
    * The `LocationService` handles the low level stuff like storing and retrieving data from the LocalStorage and retrieving data from the OpenWeatherMap API.
    *
    */
+    .factory('LocationService', ['LocationStorageService', '$q', '$cordovaGeolocation', 'WeatherListFactory', LocationService]);
+
   function LocationService(LocationStorageService, $q, $cordovaGeolocation, WeatherListFactory) {
     // The key to store our locations in - we'll use a simple key:[array] solution.
     var LOCATION_STORAGE_KEY = 'l0c4t10nK3y';
 
     /**
      * Stores a given location to the LocalStorage.
-     * @param {string} location The location to store
+     * @param {string[]} location The location to store
      */
     function storeLocation(location) {
       LocationStorageService.set(LOCATION_STORAGE_KEY, location);
@@ -97,6 +98,7 @@
             .then(function (position) {
               // if the GPS data has been retrieved (latitude and longitude), call the OpenWeatherMap API to resolve the location name
               WeatherListFactory.getWeatherDataByLatLong(position.coords.latitude, position.coords.longitude).then(function (response) {
+                //noinspection JSUnresolvedVariable
                 resolve(response.data.name + ', ' + response.data.sys.country);
               });
             }, function () {

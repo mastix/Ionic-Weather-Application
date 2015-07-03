@@ -14,13 +14,11 @@
    *
    **/
   angular.module('weatherapp.weatherlist', ['weatherapp.locations'])
-    .controller('WeatherlistController', ['$scope', 'LocationService', 'WeatherListFactory', WeatherlistController]);
   /**
    * @ngdoc controller
    * @name WeatherlistController
    * @requires $scope
    * @requires LocationService
-   * @requires WEATHER_API_IMAGE_URL
    * @requires WeatherListFactory
    *
    * @description
@@ -28,6 +26,8 @@
    * The `WeatherlistController` constructs an array of location/weather data, by sending the location to the OpenWeatherMap API and storing the result in a variable.
    *
    */
+    .controller('WeatherlistController', ['$scope', 'LocationService', 'WeatherListFactory', WeatherlistController]);
+
   function WeatherlistController($scope, LocationService, WeatherListFactory) {
     $scope.$on('$ionicView.enter', function () {
       $scope.locationData = [];

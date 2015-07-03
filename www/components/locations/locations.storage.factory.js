@@ -16,7 +16,6 @@
    *
    **/
   angular.module('weatherapp.locations')
-    .factory('LocationStorageService', ['$window', LocationStorageService]);
   /**
    * @ngdoc factory
    * @name LocationStorageService
@@ -26,6 +25,8 @@
    * The `LocationStorageService` handles the storing and retrieving data from the LocalStorage.
    *
    */
+    .factory('LocationStorageService', ['$window', LocationStorageService]);
+
   function LocationStorageService($window) {
     return {
       set: function (key, value) {

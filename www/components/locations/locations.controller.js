@@ -17,7 +17,6 @@
    *
    **/
   angular.module('weatherapp.locations', ['weatherapp.weatherlist'])
-    .controller('LocationsController', ['$scope', '$q', '$ionicPopup', 'LocationService', 'WeatherListFactory', 'WEATHER_API_URL', LocationsController]);
   /**
    * @ngdoc controller
    * @name LocationsCtrl
@@ -32,6 +31,8 @@
    * The `LocationsController` handles the addition and removal of locations. It uses the {@link LocationService `LocationService`} to actually access the device storage (to store the locations) and to retrieve data from the OpenWeatherMap-API.
    *
    */
+    .controller('LocationsController', ['$scope', '$q', '$ionicPopup', 'LocationService', 'WeatherListFactory', 'WEATHER_API_URL', LocationsController]);
+
   function LocationsController($scope, $q, $ionicPopup, LocationService, WeatherListFactory, WEATHER_API_URL) {
 
     // whenever the Locations view is shown - empty location model and reload the current list of locations.
@@ -87,7 +88,7 @@
     }
 
     /**
-     * Validates any given location by first matching it agains a simple regular expression and then by trying to retrieve it from the OpenWeatherMap API.
+     * Validates any given location by first matching it against a simple regular expression and then by trying to retrieve it from the OpenWeatherMap API.
      * @param {string} location The location to validate
      */
     function validateLocation(location) {
@@ -99,6 +100,7 @@
         if (location && location.match(myRegExp)) {
           // location matched our Regex... let's test it against the web service directly
           WeatherListFactory.getWeatherData(WEATHER_API_URL + 'q=' + location).then(function (response) {
+            //noinspection JSUnresolvedVariable
             if (!response.data || response.data.cod === '404') {
               // web service returned error code, so city is not valid
               reject();
