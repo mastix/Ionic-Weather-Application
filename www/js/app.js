@@ -34,8 +34,10 @@
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
           cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         }
+        //noinspection JSUnresolvedVariable
         if (window.StatusBar) {
-          StatusBar.styleDefault();
+          //noinspection JSUnresolvedVariable,JSUnresolvedFunction
+          window.StatusBar.styleDefault();
         }
       });
     })
