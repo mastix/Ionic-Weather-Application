@@ -38,6 +38,10 @@ But now feel free to download and play with it! ;)
 [<img alt="weather_about" src="https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_about.png" width="180" height="320">](https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_about.png) |
 [<img alt="weather_menu" src="https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_menu.png" width="180" height="320">](https://raw.githubusercontent.com/mastix/Ionic-Weather-Application/master/misc/screenshots/weather_menu.png)
 
+# Author
+
+Sascha Sambale ([@mastixmc](https://twitter.com/mastixmc))
+
 # How to start
 
 ```bash
