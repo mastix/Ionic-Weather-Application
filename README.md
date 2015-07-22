@@ -71,11 +71,12 @@ gulp run.android
 # Option 2: Run the application on your iOS device
 gulp run.ios
 
-# Option 3: Build the Android application
-gulp build.android
-
-# Option 4: Build the iOS application
+# Option 4: Build the iOS application (and create the missing icons and splash screen)
+ionic resources
 gulp build.ios
+
+# Option 4: Build the Android application (no need to create the icons and the splash screen, they are already there)
+gulp build.android
 
 # Option 5: Run the UI in your browser (Caution: You won't have device specific features when doing so (e.g. splash screen, device information (the whole about screen will not work!),...)
 ionic serve --lab
